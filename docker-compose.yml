@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  boilerplatedb:
+    image: mongo:latest
+    container_name: boilerplatedb
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=boilerplateuser
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    ports:
+      - 27017:27017  
+    volumes:     
+      - mongodb_server_data:/data/db
+    networks:
+      - app-network
+  boilerplate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    container_name: boilerplate
+    restart: unless-stopped
+    environment:
+      - DB_USERNAME=boilerplateuser
+      - DB_PASSWORD=admin
+      - DB_HOSTNAME=boilerplatedb
+      - DB_PORT=27017
+      - DB_NAME=boilerplate
+    ports:
+      - "3005:3005"
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+    networks:
+      - app-network
+    depends_on:
+      - boilerplatedb  
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongodb_server_data:

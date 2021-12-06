@@ -1,0 +1,3 @@
+const getDbModelByCollectionName = (collectionName: string) => {
+
+}
