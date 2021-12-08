@@ -19,7 +19,6 @@ export class DatabaseService {
             autoIndex: false, // Don't build indexes
             poolSize: config.database.poolSize, // Maintain up to 10 socket connections
         };
-        console.log('====================> Connecting here ============++> ', DB_URL)
         return mongoose.connect(DB_URL, options);
     }
 
