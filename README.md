@@ -18,3 +18,4 @@ This is the playground for all the Node and Mongo DB developers, you don't need 
 # TO DO
 - Unit tests
 - Logger requires some modifications
+- Configuring Dependabot to keep node modules updated.
