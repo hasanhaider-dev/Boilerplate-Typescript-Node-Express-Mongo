@@ -88,7 +88,7 @@ export class App {
         useExpressServer(this.expressApplication, this.routingControllersOptions);
     }
 
-    public async startExpressServer() {
+    public startExpressServer(): void {
         try {
             this.databaseService.initializeAndConnectDB().then(async () => {
                 logger.info(`Hey! I'm connected to database...`);
@@ -101,7 +101,6 @@ export class App {
             });
         }
         catch (err) {
-            console.log('====================> ERROR here ============++> ')
             logger.error('ERROR: ' + err)
         }
     }
