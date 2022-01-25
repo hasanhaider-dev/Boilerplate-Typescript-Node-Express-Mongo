@@ -8,6 +8,7 @@ This is the playground for all the Node and Mongo DB developers, you don't need 
 
 # Main Features/Advantages
 - API Documentation at localhost:${PORT}/docs
+- User Authentication, Login/Signup
 - Pre defined docker containers of Node & Mongo DB.
 - DB Users are already created.
 - Generic wrapper for mongoose.
